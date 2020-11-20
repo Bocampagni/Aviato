@@ -19,7 +19,7 @@ Then, build an instance of this image, so-called container.
 * -d is a reference to detached.
 * -p is the port you using to run the docker process in your computer, after the ':' is the related container port which your database is running.
 
-Let is us enter in the postgres container
+Let us enter in the postgres container
 
 `docker exec -it aviato_db bash`
 
