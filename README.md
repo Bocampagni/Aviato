@@ -43,7 +43,7 @@ Lets clone it
 
 Then cd into it
 
-`cd aviato`
+`cd Aviato`
 
 Now you are in the root of the project, you can play with it. To run the project, you can run the Maven wrapper executable file:
 
