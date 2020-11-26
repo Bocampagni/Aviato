@@ -1,15 +1,20 @@
 package com.aviato.Aviato.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "user_entity")
-public class userModel {
+public class userModel implements Serializable {
+
+
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    @Column(name = "U_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long U_id;
     @Column(name = "name")
     private String name;
     @Column(name = "email")
@@ -23,25 +28,20 @@ public class userModel {
     @Column(name = "isCompany")
     private boolean isCompany;
 
-    public userModel(){};
+    public userModel() {
 
-    public userModel(String id, String name, String email, String country, String phone, Integer age, boolean isCompany) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.country = country;
-        this.phone = phone;
-        this.age = age;
-        this.isCompany = isCompany;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    @Id
-    public String getId() {
-        return id;
+    public Long getU_id() {
+        return U_id;
+    }
+
+    public void setU_id(Long u_id) {
+        U_id = u_id;
     }
 
     public String getName() {
@@ -81,7 +81,7 @@ public class userModel {
     }
 
     public void setAge(Integer age) {
-        age = age;
+        this.age = age;
     }
 
     public boolean isCompany() {
@@ -92,31 +92,13 @@ public class userModel {
         isCompany = company;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        userModel userModel = (userModel) o;
-
-        if (isCompany != userModel.isCompany) return false;
-        if (!Objects.equals(id, userModel.id)) return false;
-        if (!Objects.equals(name, userModel.name)) return false;
-        if (!Objects.equals(email, userModel.email)) return false;
-        if (!Objects.equals(country, userModel.country)) return false;
-        if (!Objects.equals(phone, userModel.phone)) return false;
-        return Objects.equals(age, userModel.age);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (age != null ? age.hashCode() : 0);
-        result = 31 * result + (isCompany ? 1 : 0);
-        return result;
+    public userModel(Long u_id, String name, String email, String country, String phone, Integer age, boolean isCompany) {
+        U_id = u_id;
+        this.name = name;
+        this.email = email;
+        this.country = country;
+        this.phone = phone;
+        this.age = age;
+        this.isCompany = isCompany;
     }
 }
