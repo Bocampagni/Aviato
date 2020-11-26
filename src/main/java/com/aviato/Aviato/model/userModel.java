@@ -1,7 +1,5 @@
 package com.aviato.Aviato.model;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.util.Objects;
 
