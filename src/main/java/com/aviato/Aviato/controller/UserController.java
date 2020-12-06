@@ -1,6 +1,6 @@
 package com.aviato.Aviato.controller;
 
-import com.aviato.Aviato.model.userModel;
+import com.aviato.Aviato.model.UserModel;
 import com.aviato.Aviato.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,36 +17,36 @@ public class UserController {
     UserRepository uRepository;
     UserService userService;
     @GetMapping(path = "/getAllUsers")
-    public List<userModel> getAll(){
+    public List<UserModel> getAll(){
 
         return uRepository.findAll();
     }
 
     @GetMapping(path = "/getUser/{id}")
-    public userModel getUser(@PathVariable Long id){
+    public UserModel getUser(@PathVariable Long id){
 
-        Optional<userModel> user = uRepository.findById(id);
+        Optional<UserModel> user = uRepository.findById(id);
         return user
-                .orElseGet(userModel::new);
+                .orElseGet(UserModel::new);
 
     }
 
     @PostMapping(path = "/saveUser")
-    public ResponseEntity<userModel> saveUser(@RequestBody userModel user){
+    public ResponseEntity<UserModel> saveUser(@RequestBody UserModel user){
 
-        userModel persistedUser = uRepository.save(user);
+        UserModel persistedUser = uRepository.save(user);
 
         return ResponseEntity.accepted().body(persistedUser);
     }
 
     @PutMapping(path = "/updateUser")
-    public userModel updateUser(@RequestBody userModel userToPersist){
+    public UserModel updateUser(@RequestBody UserModel userToPersist){
 
         return uRepository.save(userToPersist);
     }
 
     @DeleteMapping(path = "/deleteUser/{id}")
-    public ResponseEntity<userModel> deleteUser(@PathVariable Long id){
+    public ResponseEntity<UserModel> deleteUser(@PathVariable Long id){
 
         uRepository.deleteById(id);
 
