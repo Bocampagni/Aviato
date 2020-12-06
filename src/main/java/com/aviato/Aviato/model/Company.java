@@ -1,14 +1,12 @@
 package com.aviato.Aviato.model;
 
 import com.sun.istack.NotNull;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Company")
-public class company {
+public class Company {
 
     private static final long serialVersionUID = 1L;
 
@@ -54,10 +52,10 @@ public class company {
     //Adicionar Voo quando o model tiver pronto
 
 
-    public company() {
+    public Company() {
     }
 
-    public company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status) {
+    public Company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status) {
         Company_id = company_id;
         this.name = name;
         this.password = password;
