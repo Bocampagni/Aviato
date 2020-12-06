@@ -1,22 +1,21 @@
 package com.aviato.Aviato.model;
 
 import com.sun.istack.NotNull;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "user_entity")
-public class UserModel implements Serializable {
-
+@Table(name = "Company")
+public class company {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "U_id")
+    @Column(name = "Company_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long U_id;
+    private Long Company_id;
 
     @Column(name = "name")
     private String name;
@@ -41,20 +40,25 @@ public class UserModel implements Serializable {
     @Column(name = "birthday")
     private Date birthday;
 
-    @Column(name = "cpf")
-    private String cpf;
+    @Column(name = "cnpj")
+    private String cnpj;
 
     @Column(name = "adress")
     private String adress;
 
-    //Adicionar voos depois de criar a entidade
+    @Column(name = "status")
+    private String status; //Trocar pra enum no futuro
 
 
-    public UserModel() {
+    //Adicionar Aviao quando o model tiver pronto
+    //Adicionar Voo quando o model tiver pronto
+
+
+    public company() {
     }
 
-    public UserModel(Long u_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cpf, String adress) {
-        U_id = u_id;
+    public company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status) {
+        Company_id = company_id;
         this.name = name;
         this.password = password;
         this.email = email;
@@ -62,20 +66,21 @@ public class UserModel implements Serializable {
         this.phone = phone;
         this.token = token;
         this.birthday = birthday;
-        this.cpf = cpf;
+        this.cnpj = cnpj;
         this.adress = adress;
+        this.status = status;
     }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public Long getU_id() {
-        return U_id;
+    public Long getCompany_id() {
+        return Company_id;
     }
 
-    public void setU_id(Long u_id) {
-        U_id = u_id;
+    public void setCompany_id(Long company_id) {
+        Company_id = company_id;
     }
 
     public String getName() {
@@ -134,12 +139,12 @@ public class UserModel implements Serializable {
         this.birthday = birthday;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getAdress() {
@@ -150,10 +155,18 @@ public class UserModel implements Serializable {
         this.adress = adress;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "UserModel{" +
-                "U_id=" + U_id +
+        return "company{" +
+                "Company_id=" + Company_id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
@@ -161,8 +174,9 @@ public class UserModel implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", token='" + token + '\'' +
                 ", birthday=" + birthday +
-                ", cpf='" + cpf + '\'' +
+                ", cnpj='" + cnpj + '\'' +
                 ", adress='" + adress + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
