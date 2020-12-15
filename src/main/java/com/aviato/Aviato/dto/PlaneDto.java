@@ -1,47 +1,35 @@
-package com.aviato.Aviato.model;
+package com.aviato.Aviato.dto;
 
 import javax.persistence.*;
 import com.aviato.Aviato.model.Company;
+import com.aviato.Aviato.model.Flight;
 
 import java.util.List;
 
-@Entity
-@Table(name = "plane")
-public class Plane {
+public class PlaneDto {
 
-    private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "Plane_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Plane_id;
 
-    @Column(name = "model")
     private String model;
 
-    @Column(name = "version")
     private Double version;
 
-    @Column(name = "capacity")
     private Integer capacity;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "madeIn")
     private String madeIn;
 
-    @OneToOne
     private Company belongTo;
 
-    @ManyToMany
     private List<Flight> flights;
 
 
-    public Plane() {
+    public PlaneDto() {
     }
 
-    public Plane(List<Flight> flights,Long plane_id, String model, Double version, Integer capacity, String description, String madeIn, Company belongTo) {
+    public PlaneDto(List<Flight> flights,Long plane_id, String model, Double version, Integer capacity, String description, String madeIn, Company belongTo) {
         this.flights = flights;
         Plane_id = plane_id;
         this.model = model;
@@ -52,9 +40,6 @@ public class Plane {
         this.belongTo = belongTo;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Long getPlane_id() {
         return Plane_id;

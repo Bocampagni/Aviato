@@ -3,6 +3,7 @@ package com.aviato.Aviato.model;
 import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Company")
@@ -47,15 +48,16 @@ public class Company {
     @Column(name = "status")
     private String status; //Trocar pra enum no futuro
 
+    @OneToMany
+    private List<Plane> planes;
 
-    //Adicionar Aviao quando o model tiver pronto
-    //Adicionar Voo quando o model tiver pronto
-
+    @OneToMany
+    private List<Flight> flighs;
 
     public Company() {
     }
 
-    public Company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status) {
+    public Company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status, List<Plane> planes, List<Flight> flighs) {
         Company_id = company_id;
         this.name = name;
         this.password = password;
@@ -67,6 +69,8 @@ public class Company {
         this.cnpj = cnpj;
         this.adress = adress;
         this.status = status;
+        this.planes = planes;
+        this.flighs = flighs;
     }
 
     public static long getSerialVersionUID() {
@@ -161,9 +165,25 @@ public class Company {
         this.status = status;
     }
 
+    public List<Plane> getPlanes() {
+        return planes;
+    }
+
+    public void setPlanes(List<Plane> planes) {
+        this.planes = planes;
+    }
+
+    public List<Flight> getFlighs() {
+        return flighs;
+    }
+
+    public void setFlighs(List<Flight> flighs) {
+        this.flighs = flighs;
+    }
+
     @Override
     public String toString() {
-        return "company{" +
+        return "Company{" +
                 "Company_id=" + Company_id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
@@ -175,6 +195,8 @@ public class Company {
                 ", cnpj='" + cnpj + '\'' +
                 ", adress='" + adress + '\'' +
                 ", status='" + status + '\'' +
+                ", planes=" + planes +
+                ", flighs=" + flighs +
                 '}';
     }
 }

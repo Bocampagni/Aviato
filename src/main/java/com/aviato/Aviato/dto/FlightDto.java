@@ -1,47 +1,36 @@
-package com.aviato.Aviato.model;
+package com.aviato.Aviato.dto;
 
-import javax.persistence.*;
+import com.aviato.Aviato.model.Company;
+import com.aviato.Aviato.model.Plane;
+import com.aviato.Aviato.model.UserModel;
+
 import java.util.Date;
 import java.util.List;
 
-@Entity
-public class Flight {
+public class FlightDto {
 
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Column(name = "Flight_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Flight_id;
 
-    @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "price")
     private double price;
 
-    @Column(name = "date")
     private Date date;
 
-    @ManyToMany
     private List<Plane> planes;
 
-    @ManyToMany
     private List<Company> companies;
 
-    @ManyToMany
     private List<UserModel> users;
 
-    @Column(name = "arrive")
     private String arrive;
 
-    @Column(name = "departure")
     private String departure;
 
-    public Flight() {
+    public FlightDto() {
     }
 
-    public Flight(Long flight_id, int quantity, double price, Date date, List<Plane> planes, List<Company> companies, List<UserModel> users, String arrive, String departure) {
+    public FlightDto(Long flight_id, int quantity, double price, Date date, List<Plane> planes, List<Company> companies, List<UserModel> users, String arrive, String departure) {
         Flight_id = flight_id;
         this.quantity = quantity;
         this.price = price;
@@ -51,10 +40,6 @@ public class Flight {
         this.users = users;
         this.arrive = arrive;
         this.departure = departure;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getFlight_id() {
