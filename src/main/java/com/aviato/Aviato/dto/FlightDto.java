@@ -1,10 +1,8 @@
 package com.aviato.Aviato.dto;
 
-import com.aviato.Aviato.model.Company;
 import com.aviato.Aviato.model.Plane;
 import com.aviato.Aviato.model.UserModel;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 

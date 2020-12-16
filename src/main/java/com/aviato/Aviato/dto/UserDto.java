@@ -1,14 +1,11 @@
 package com.aviato.Aviato.dto;
 
-import com.aviato.Aviato.model.Flight;
-import com.sun.istack.NotNull;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
-import java.util.List;
 
 public class UserDto {
 

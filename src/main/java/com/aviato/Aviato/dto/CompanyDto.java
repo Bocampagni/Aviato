@@ -1,10 +1,6 @@
 package com.aviato.Aviato.dto;
 
 import com.aviato.Aviato.model.Flight;
-import com.aviato.Aviato.model.Plane;
-import com.sun.istack.NotNull;
-
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 

@@ -1,10 +1,8 @@
 package com.aviato.Aviato.dto;
 
-import javax.persistence.*;
 import com.aviato.Aviato.model.Company;
 import com.aviato.Aviato.model.Flight;
 
-import java.util.List;
 
 public class PlaneDto {
 
