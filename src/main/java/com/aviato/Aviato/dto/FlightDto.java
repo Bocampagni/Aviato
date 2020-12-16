@@ -4,6 +4,7 @@ import com.aviato.Aviato.model.Company;
 import com.aviato.Aviato.model.Plane;
 import com.aviato.Aviato.model.UserModel;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -19,8 +20,6 @@ public class FlightDto {
 
     private List<Plane> planes;
 
-    private List<Company> companies;
-
     private List<UserModel> users;
 
     private String arrive;
@@ -30,13 +29,12 @@ public class FlightDto {
     public FlightDto() {
     }
 
-    public FlightDto(Long flight_id, int quantity, double price, Date date, List<Plane> planes, List<Company> companies, List<UserModel> users, String arrive, String departure) {
+    public FlightDto(Long flight_id, int quantity, double price, Date date, List<Plane> planes, List<UserModel> users, String arrive, String departure) {
         Flight_id = flight_id;
         this.quantity = quantity;
         this.price = price;
         this.date = date;
         this.planes = planes;
-        this.companies = companies;
         this.users = users;
         this.arrive = arrive;
         this.departure = departure;
@@ -82,14 +80,6 @@ public class FlightDto {
         this.planes = planes;
     }
 
-    public List<Company> getCompanies() {
-        return companies;
-    }
-
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
-    }
-
     public List<UserModel> getUsers() {
         return users;
     }
@@ -116,13 +106,12 @@ public class FlightDto {
 
     @Override
     public String toString() {
-        return "Flight{" +
+        return "FlightDto{" +
                 "Flight_id=" + Flight_id +
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", date=" + date +
                 ", planes=" + planes +
-                ", companies=" + companies +
                 ", users=" + users +
                 ", arrive='" + arrive + '\'' +
                 ", departure='" + departure + '\'' +

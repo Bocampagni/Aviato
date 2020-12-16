@@ -49,15 +49,12 @@ public class Company {
     private String status; //Trocar pra enum no futuro
 
     @OneToMany
-    private List<Plane> planes;
-
-    @OneToMany
     private List<Flight> flighs;
 
     public Company() {
     }
 
-    public Company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status, List<Plane> planes, List<Flight> flighs) {
+    public Company(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status, List<Flight> flighs) {
         Company_id = company_id;
         this.name = name;
         this.password = password;
@@ -69,7 +66,6 @@ public class Company {
         this.cnpj = cnpj;
         this.adress = adress;
         this.status = status;
-        this.planes = planes;
         this.flighs = flighs;
     }
 
@@ -165,13 +161,7 @@ public class Company {
         this.status = status;
     }
 
-    public List<Plane> getPlanes() {
-        return planes;
-    }
 
-    public void setPlanes(List<Plane> planes) {
-        this.planes = planes;
-    }
 
     public List<Flight> getFlighs() {
         return flighs;
@@ -195,7 +185,6 @@ public class Company {
                 ", cnpj='" + cnpj + '\'' +
                 ", adress='" + adress + '\'' +
                 ", status='" + status + '\'' +
-                ", planes=" + planes +
                 ", flighs=" + flighs +
                 '}';
     }

@@ -16,8 +16,8 @@ public class FlightController {
     @Autowired
     FlightRepository flightRepository;
 
-    @GetMapping(path = "/getAllCompanies")
-    public List<Flight> getAll(){
+    @GetMapping(path = "/getAllFlights")
+    public List<Flight>getAll(){
 
         return flightRepository.findAll();
     }

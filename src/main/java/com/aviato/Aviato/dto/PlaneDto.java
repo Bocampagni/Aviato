@@ -23,14 +23,12 @@ public class PlaneDto {
 
     private Company belongTo;
 
-    private List<Flight> flights;
-
+    private Flight flights;
 
     public PlaneDto() {
     }
 
-    public PlaneDto(List<Flight> flights,Long plane_id, String model, Double version, Integer capacity, String description, String madeIn, Company belongTo) {
-        this.flights = flights;
+    public PlaneDto(Long plane_id, String model, Double version, Integer capacity, String description, String madeIn, Company belongTo, Flight flights) {
         Plane_id = plane_id;
         this.model = model;
         this.version = version;
@@ -38,8 +36,8 @@ public class PlaneDto {
         this.description = description;
         this.madeIn = madeIn;
         this.belongTo = belongTo;
+        this.flights = flights;
     }
-
 
     public Long getPlane_id() {
         return Plane_id;
@@ -49,12 +47,12 @@ public class PlaneDto {
         Plane_id = plane_id;
     }
 
-    public String getModelo() {
+    public String getModel() {
         return model;
     }
 
-    public void setModelo(String modelo) {
-        this.model = modelo;
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public Double getVersion() {
@@ -97,17 +95,17 @@ public class PlaneDto {
         this.belongTo = belongTo;
     }
 
-    public List<Flight> getFlights() {
+    public Flight getFlights() {
         return flights;
     }
 
-    public void setFlights(List<Flight> flights) {
+    public void setFlights(Flight flights) {
         this.flights = flights;
     }
 
     @Override
     public String toString() {
-        return "Plane{" +
+        return "PlaneDto{" +
                 "Plane_id=" + Plane_id +
                 ", model='" + model + '\'' +
                 ", version=" + version +

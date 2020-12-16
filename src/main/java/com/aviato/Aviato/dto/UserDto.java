@@ -1,14 +1,23 @@
 package com.aviato.Aviato.dto;
 
 import com.aviato.Aviato.model.Flight;
+import com.sun.istack.NotNull;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
 
 public class UserDto {
 
+    @Id
+    @Column(name = "U_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long U_id;
 
+    @Column(name = "name")
     private String name;
 
     private String password;
@@ -27,10 +36,10 @@ public class UserDto {
 
     private String adress;
 
-    private List<Flight> flights;
+    public UserDto() {
+    }
 
-
-    public UserDto(Long u_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cpf, String adress, List<Flight> flights) {
+    public UserDto(Long u_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cpf, String adress) {
         U_id = u_id;
         this.name = name;
         this.password = password;
@@ -41,10 +50,6 @@ public class UserDto {
         this.birthday = birthday;
         this.cpf = cpf;
         this.adress = adress;
-        this.flights = flights;
-    }
-
-    public UserDto() {
     }
 
     public Long getU_id() {
@@ -127,17 +132,9 @@ public class UserDto {
         this.adress = adress;
     }
 
-    public List<Flight> getFlights() {
-        return flights;
-    }
-
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
-    }
-
     @Override
     public String toString() {
-        return "UserModel{" +
+        return "UserDto{" +
                 "U_id=" + U_id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
@@ -148,8 +145,6 @@ public class UserDto {
                 ", birthday=" + birthday +
                 ", cpf='" + cpf + '\'' +
                 ", adress='" + adress + '\'' +
-                ", flights=" + flights +
                 '}';
     }
-
 }

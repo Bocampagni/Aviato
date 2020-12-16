@@ -5,7 +5,6 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "user_entity")
@@ -48,10 +47,11 @@ public class UserModel implements Serializable {
     @Column(name = "adress")
     private String adress;
 
-    @ManyToMany
-    private List<Flight> flights;
 
-    public UserModel(Long u_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cpf, String adress, List<Flight> flights) {
+    public UserModel() {
+    }
+
+    public UserModel(Long u_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cpf, String adress) {
         U_id = u_id;
         this.name = name;
         this.password = password;
@@ -62,10 +62,6 @@ public class UserModel implements Serializable {
         this.birthday = birthday;
         this.cpf = cpf;
         this.adress = adress;
-        this.flights = flights;
-    }
-
-    public UserModel() {
     }
 
     public static long getSerialVersionUID() {
@@ -152,14 +148,6 @@ public class UserModel implements Serializable {
         this.adress = adress;
     }
 
-    public List<Flight> getFlights() {
-        return flights;
-    }
-
-    public void setFlights(List<Flight> flights) {
-        this.flights = flights;
-    }
-
     @Override
     public String toString() {
         return "UserModel{" +
@@ -173,7 +161,6 @@ public class UserModel implements Serializable {
                 ", birthday=" + birthday +
                 ", cpf='" + cpf + '\'' +
                 ", adress='" + adress + '\'' +
-                ", flights=" + flights +
                 '}';
     }
 }

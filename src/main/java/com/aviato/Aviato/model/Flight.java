@@ -26,8 +26,6 @@ public class Flight {
     @ManyToMany
     private List<Plane> planes;
 
-    @ManyToMany
-    private List<Company> companies;
 
     @ManyToMany
     private List<UserModel> users;
@@ -41,13 +39,12 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(Long flight_id, int quantity, double price, Date date, List<Plane> planes, List<Company> companies, List<UserModel> users, String arrive, String departure) {
+    public Flight(Long flight_id, int quantity, double price, Date date, List<Plane> planes, List<UserModel> users, String arrive, String departure) {
         Flight_id = flight_id;
         this.quantity = quantity;
         this.price = price;
         this.date = date;
         this.planes = planes;
-        this.companies = companies;
         this.users = users;
         this.arrive = arrive;
         this.departure = departure;
@@ -97,14 +94,6 @@ public class Flight {
         this.planes = planes;
     }
 
-    public List<Company> getCompanies() {
-        return companies;
-    }
-
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
-    }
-
     public List<UserModel> getUsers() {
         return users;
     }
@@ -137,7 +126,6 @@ public class Flight {
                 ", price=" + price +
                 ", date=" + date +
                 ", planes=" + planes +
-                ", companies=" + companies +
                 ", users=" + users +
                 ", arrive='" + arrive + '\'' +
                 ", departure='" + departure + '\'' +

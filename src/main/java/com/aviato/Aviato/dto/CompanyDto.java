@@ -2,6 +2,9 @@ package com.aviato.Aviato.dto;
 
 import com.aviato.Aviato.model.Flight;
 import com.aviato.Aviato.model.Plane;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -29,14 +32,13 @@ public class CompanyDto {
 
     private String status; //Trocar pra enum no futuro
 
-    private List<Plane> planes;
-
     private List<Flight> flighs;
+
 
     public CompanyDto() {
     }
 
-    public CompanyDto(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status, List<Plane> planes, List<Flight> flighs) {
+    public CompanyDto(Long company_id, String name, String password, String email, String country, String phone, String token, Date birthday, String cnpj, String adress, String status, List<Flight> flighs) {
         Company_id = company_id;
         this.name = name;
         this.password = password;
@@ -48,7 +50,6 @@ public class CompanyDto {
         this.cnpj = cnpj;
         this.adress = adress;
         this.status = status;
-        this.planes = planes;
         this.flighs = flighs;
     }
 
@@ -140,14 +141,6 @@ public class CompanyDto {
         this.status = status;
     }
 
-    public List<Plane> getPlanes() {
-        return planes;
-    }
-
-    public void setPlanes(List<Plane> planes) {
-        this.planes = planes;
-    }
-
     public List<Flight> getFlighs() {
         return flighs;
     }
@@ -158,7 +151,8 @@ public class CompanyDto {
 
     @Override
     public String toString() {
-        return "Company{" +
+        return "CompanyDto{" +
+                "Company_id=" + Company_id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
@@ -169,7 +163,6 @@ public class CompanyDto {
                 ", cnpj='" + cnpj + '\'' +
                 ", adress='" + adress + '\'' +
                 ", status='" + status + '\'' +
-                ", planes=" + planes +
                 ", flighs=" + flighs +
                 '}';
     }

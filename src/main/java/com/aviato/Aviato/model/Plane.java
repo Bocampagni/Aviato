@@ -34,14 +34,14 @@ public class Plane {
     @OneToOne
     private Company belongTo;
 
-    @ManyToMany
-    private List<Flight> flights;
+    @ManyToOne
+    private Flight flights;
 
 
     public Plane() {
     }
 
-    public Plane(List<Flight> flights,Long plane_id, String model, Double version, Integer capacity, String description, String madeIn, Company belongTo) {
+    public Plane(Flight flights,Long plane_id, String model, Double version, Integer capacity, String description, String madeIn, Company belongTo) {
         this.flights = flights;
         Plane_id = plane_id;
         this.model = model;
@@ -112,11 +112,11 @@ public class Plane {
         this.belongTo = belongTo;
     }
 
-    public List<Flight> getFlights() {
+    public Flight getFlights() {
         return flights;
     }
 
-    public void setFlights(List<Flight> flights) {
+    public void setFlights(Flight flights) {
         this.flights = flights;
     }
 
